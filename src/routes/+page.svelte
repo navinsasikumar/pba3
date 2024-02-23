@@ -72,12 +72,19 @@
 
 <TailwindCss/>
 
-<h1>Breeding Codes for PBA3</h1>
-<p>Safe breeding codes to use on {today.toLocaleString("default", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
-<div>
+<div class="bg-slate-700 container max-w-full px-4 py-8 text-slate-100 w-full">
+  <h1>Breeding Codes for PBA3</h1>
+</div>
+<p class="px-4 py-2">
+  Safe breeding codes to use on 
+  <span class="text-red-400">
+    {today.toLocaleString("default", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+  </span>
+</p>
+<div class="px-4 text-sm">
   {#each Object.entries(birds) as [bird, codes]}
-    <div class="bird-block">
-      <div class="bird-name">{bird}</div>
+    <div class="bird-block pb-2">
+      <div class="bird-name font-medium">{bird}</div>
       <div class="breeding-codes">{codes.join(", ")}</div>
     </div>
   {/each}
