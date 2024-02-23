@@ -1,4 +1,6 @@
 <script>
+  import TailwindCss from '../lib/TailwindCSS.svelte';
+
   export let birds, today; 
 
   const confirmed = ['PE', 'CN', 'DD', 'UN', 'ON', 'FL', 'CF', 'FY', 'FS', 'NE', 'NY'];
@@ -67,6 +69,8 @@
   birds = weeks[currentWeek];
 
 </script>
+
+<TailwindCss/>
 
 <h1>Breeding Codes for PBA3</h1>
 <p>Safe breeding codes to use on {today.toLocaleString("default", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
