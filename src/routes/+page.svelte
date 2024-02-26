@@ -156,9 +156,9 @@
 
   weeks.Febw3 = {
     'Rock Pigeon': [...confirmed, ...probable, ...possible],
+    'Bald Eagle': [...confirmed, ...probable],
     'Great Horned Owl': [...confirmed, ...probable, ...possible],
     'Barred Owl': [...confirmed, ...probable, ...possible],
-    'Bald Eagle': [...confirmed, ...probable],
     'Red-tailed Hawk': [...confirmed, ...probable],
     'Common Raven': [...confirmed, ...probable],
     'House Sparrow': [...confirmed, ...probable, ...possible],
@@ -166,11 +166,25 @@
 
   weeks.Febw4 = {
     'Rock Pigeon': [...confirmed, ...probable, ...possible],
-    'Great Horned Owl': [...confirmed, ...probable, ...possible],
-    'Barred Owl': [...confirmed, ...probable, ...possible],
     'Bald Eagle': [...confirmed, ...probable],
     'Red-tailed Hawk': [...confirmed, ...probable],
+    'Great Horned Owl': [...confirmed, ...probable, ...possible],
+    'Barred Owl': [...confirmed, ...probable, ...possible],
     'Common Raven': [...confirmed, ...probable],
+    'Carolina Chickadee': [...confirmed, ...probable],
+    'House Sparrow': [...confirmed, ...probable, ...possible],
+  }; 
+
+  weeks.Mar1 = {
+    'Wild Turkey': [...confirmed, ...probable],
+    'Rock Pigeon': [...confirmed, ...probable, ...possible],
+    'Bald Eagle': [...confirmed, ...probable],
+    'Red-tailed Hawk': [...confirmed, ...probable],
+    'Eastern Screech-Owl': [...confirmed, ...probable],
+    'Great Horned Owl': [...confirmed, ...probable, ...possible],
+    'Barred Owl': [...confirmed, ...probable, ...possible],
+    'American Kestrel': [...confirmed, ...probable],
+    'Common Raven': [...confirmed, ...probable, ...possible],
     'Carolina Chickadee': [...confirmed, ...probable],
     'House Sparrow': [...confirmed, ...probable, ...possible],
   }; 
