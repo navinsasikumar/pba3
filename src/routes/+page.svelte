@@ -255,11 +255,11 @@
   </span>
 </p>
 <p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
-<div class="px-4 text-sm">
+<div class="container max-w-full px-4 text-sm w-full">
   {#each Object.entries(birds) as [bird, codes]}
-    <div class="bird-block pb-2">
+    <div class="bird-block pb-2 text-wrap">
       <div class="bird-name font-medium">{bird}</div>
-      <div class="breeding-codes">
+      <div class="breeding-codes break-words">
         {#each codes as code, index}
           <span on:click={() => describeCode(code)} class="cursor-pointer hover:text-red-400 hover:underline decoration-dotted">{code}</span>{#if index < codes.length - 1},&nbsp;{/if}
         {/each}
