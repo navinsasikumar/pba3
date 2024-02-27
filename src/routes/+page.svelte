@@ -3,6 +3,8 @@
 
   export let birds, today; 
 
+  let view = 'birds';
+
   const confirmed = ['PE', 'CN', 'DD', 'UN', 'ON', 'FL', 'CF', 'FY', 'FS', 'NE', 'NY'];
   const probable = ['S7', 'M', 'P', 'T', 'C', 'N', 'A', 'B'];
   const possible = ['H', 'S'];
@@ -214,6 +216,11 @@
 
   birds = weeks[currentWeek];
 
+  const possibleBirds = Object.keys(birds).filter(bird => birds[bird].includes('H')); 
+  const probableBirds = Object.keys(birds).filter(bird => birds[bird].includes('S7') && !possibleBirds.includes(bird)); 
+  const confirmedBirds = Object.keys(birds).filter(bird => birds[bird].includes('CN') && !possibleBirds.includes(bird) && !probableBirds.includes(bird)); 
+  const confirmedandProbableBirds = [...confirmedBirds, ...probableBirds];
+
 </script>
 
 <TailwindCss/>
@@ -254,19 +261,58 @@
     {today.toLocaleString("default", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
   </span>
 </p>
-<p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
-<div class="container max-w-full px-4 text-sm w-full">
-  {#each Object.entries(birds) as [bird, codes]}
-    <div class="bird-block pb-2 text-wrap">
-      <div class="bird-name font-medium">{bird}</div>
-      <div class="breeding-codes break-words">
-        {#each codes as code, index}
-          <span on:click={() => describeCode(code)} class="cursor-pointer hover:text-red-400 hover:underline decoration-dotted">{code}</span>{#if index < codes.length - 1},&nbsp;{/if}
+
+<div class="container max-w-full px-4 text-sm w-full" >
+  <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
+    <legend class="px-1">View</legend>
+
+    <div class="inline-block pr-2">
+      <input id="birds-view" type="radio" bind:group={view} value="birds" />
+      <label for="birds-view">Birds</label>
+    </div>
+    <div class="inline-block pr-2">
+      <input id="codes-view" type="radio" bind:group={view} value="codes" />
+      <label for="codes-view">Codes</label>
+    </div>
+  </fieldset>
+</div>
+
+{#if view === 'birds'}
+  <p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
+  <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
+    {#each Object.entries(birds) as [bird, codes]}
+      <div class="bird-block pb-2 text-wrap">
+        <div class="bird-name font-medium">{bird}</div>
+        <div class="breeding-codes break-words">
+          {#each codes as code, index}
+            <span on:click={() => describeCode(code)} class="cursor-pointer hover:text-red-400 hover:underline decoration-dotted">{code}</span>{#if index < codes.length - 1},&nbsp;{/if}
+          {/each}
+        </div>
+      </div>
+    {/each}
+  </div>
+{/if}
+
+{#if view === 'codes'}
+  <div class="container max-w-full px-4 py-2 text-sm w-full" id="code-first-view">
+    <div class="code-block pb-2 text-wrap">
+      <div class="bird-name font-medium">Any Breeding Code</div>
+      <div class="bird-list columns-1 md:columns-4">
+        {#each possibleBirds as bird, index}
+          <div class="w-full">{bird}</div>
         {/each}
       </div>
     </div>
-  {/each}
-</div>
+    <div class="code-block pb-2 text-wrap">
+      <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
+      <div class="bird-list columns-1 md:columns-4">
+        {#each confirmedandProbableBirds as bird, index}
+          <div class="w-full">{bird}</div>
+        {/each}
+      </div>
+    </div>
+  </div>
+{/if}
 
 <hr class="mx-4 my-3">
 
