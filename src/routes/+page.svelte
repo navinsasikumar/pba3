@@ -4,6 +4,7 @@
   export let birds, today; 
 
   let view = 'birds';
+  let searchBird = '';
 
   const confirmed = ['PE', 'CN', 'DD', 'UN', 'ON', 'FL', 'CF', 'FY', 'FS', 'NE', 'NY'];
   const probable = ['S7', 'M', 'P', 'T', 'C', 'N', 'A', 'B'];
@@ -214,7 +215,7 @@
   today = new Date();
   const currentWeek = getCurrentWeek(today);
 
-  birds = weeks[currentWeek];
+  birds = { ...weeks[currentWeek]};
 
   const possibleBirds = Object.keys(birds).filter(bird => birds[bird].includes('H')); 
   const probableBirds = Object.keys(birds).filter(bird => birds[bird].includes('S7') && !possibleBirds.includes(bird)); 
@@ -263,32 +264,41 @@
 </p>
 
 <div class="container max-w-full px-4 text-sm w-full" >
-  <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
-    <legend class="px-1">View</legend>
+  <div class="columns-1 md:columns-2">
+    <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
+      <legend class="px-2">View</legend>
 
-    <div class="inline-block pr-2">
-      <input id="birds-view" type="radio" bind:group={view} value="birds" />
-      <label for="birds-view">Birds</label>
-    </div>
-    <div class="inline-block pr-2">
-      <input id="codes-view" type="radio" bind:group={view} value="codes" />
-      <label for="codes-view">Codes</label>
-    </div>
-  </fieldset>
+      <div class="inline-block pr-2 py-1">
+        <input id="birds-view" type="radio" bind:group={view} value="birds" />
+        <label for="birds-view">Birds</label>
+      </div>
+      <div class="inline-block pr-2 py-1">
+        <input id="codes-view" type="radio" bind:group={view} value="codes" />
+        <label for="codes-view">Codes</label>
+      </div>
+    </fieldset>
+    
+    <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
+      <legend class="px-2">Search</legend>
+      <input type="text" bind:value={searchBird} class="px-2 py-1 rounded w-full" placeholder="Search for a bird" />
+    </fieldset>
+  </div>
 </div>
 
 {#if view === 'birds'}
   <p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
   <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
     {#each Object.entries(birds) as [bird, codes]}
-      <div class="bird-block pb-2 text-wrap">
-        <div class="bird-name font-medium">{bird}</div>
-        <div class="breeding-codes break-words">
-          {#each codes as code, index}
-            <span on:click={() => describeCode(code)} class="cursor-pointer hover:text-red-400 hover:underline decoration-dotted">{code}</span>{#if index < codes.length - 1},&nbsp;{/if}
-          {/each}
+      {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+        <div class="bird-block pb-2 text-wrap">
+          <div class="bird-name font-medium">{bird}</div>
+          <div class="breeding-codes break-words">
+            {#each codes as code, index}
+              <span on:click={() => describeCode(code)} class="cursor-pointer hover:text-red-400 hover:underline decoration-dotted">{code}</span>{#if index < codes.length - 1},&nbsp;{/if}
+            {/each}
+          </div>
         </div>
-      </div>
+      {/if}
     {/each}
   </div>
 {/if}
@@ -299,7 +309,9 @@
       <div class="bird-name font-medium">Any Breeding Code</div>
       <div class="bird-list columns-1 md:columns-4">
         {#each possibleBirds as bird, index}
-          <div class="w-full">{bird}</div>
+          {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+            <div class="w-full">{bird}</div>
+          {/if}
         {/each}
       </div>
     </div>
@@ -307,7 +319,9 @@
       <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
       <div class="bird-list columns-1 md:columns-4">
         {#each confirmedandProbableBirds as bird, index}
-          <div class="w-full">{bird}</div>
+          {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+            <div class="w-full">{bird}</div>
+          {/if}
         {/each}
       </div>
     </div>
@@ -332,4 +346,4 @@
   {/each}
 </div>
 
-<svelte:window on:keydown|preventDefault={onKeyDown} />
+<svelte:window on:keydown={onKeyDown} />
