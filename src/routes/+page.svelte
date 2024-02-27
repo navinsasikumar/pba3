@@ -285,6 +285,12 @@
   </div>
 </div>
 
+{#if Object.keys(birds).filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length <= 0}
+  <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
+    <p class="py-2">No birds found matching your search term</p>
+  </div>
+{/if}
+
 {#if view === 'birds'}
   <p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
   <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
@@ -305,26 +311,31 @@
 
 {#if view === 'codes'}
   <div class="container max-w-full px-4 py-2 text-sm w-full" id="code-first-view">
-    <div class="code-block pb-2 text-wrap">
-      <div class="bird-name font-medium">Any Breeding Code</div>
-      <div class="bird-list columns-1 md:columns-4">
-        {#each possibleBirds as bird, index}
-          {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
-            <div class="w-full">{bird}</div>
-          {/if}
-        {/each}
+    {#if possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
+      <div class="code-block pb-2 text-wrap">
+        <div class="bird-name font-medium">Any Breeding Code</div>
+        <div class="bird-list columns-1 md:columns-4">
+          {#each possibleBirds as bird, index}
+            {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+              <div class="w-full">{bird}</div>
+            {/if}
+          {/each}
+        </div>
       </div>
-    </div>
-    <div class="code-block pb-2 text-wrap">
-      <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
-      <div class="bird-list columns-1 md:columns-4">
-        {#each confirmedandProbableBirds as bird, index}
-          {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
-            <div class="w-full">{bird}</div>
-          {/if}
-        {/each}
+    {/if}
+
+    {#if confirmedandProbableBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
+      <div class="code-block pb-2 text-wrap">
+        <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
+        <div class="bird-list columns-1 md:columns-4">
+          {#each confirmedandProbableBirds as bird, index}
+            {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+              <div class="w-full">{bird}</div>
+            {/if}
+          {/each}
+        </div>
       </div>
-    </div>
+    {/if}
   </div>
 {/if}
 
