@@ -289,91 +289,120 @@
   <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
     <p class="py-2">No birds found matching your search term</p>
   </div>
-{/if}
+{:else}
+  {#if view === 'birds'}
+    <p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
+    <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
+      {#each Object.entries(birds) as [bird, codes]}
+        {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+          <div class="bird-block pb-2 text-wrap">
+            <div class="bird-name font-medium">{bird}</div>
+            <div class="breeding-codes">
+              {#each codes as code, index}
+                {#if confirmed.includes(code)}
+                  <div on:click={() => describeCode(code)} class="align-middle bg-indigo-950 cursor-pointer h-10 inline-block mb-2 mr-2 p-3 rounded-full text-center text-xs text-white w-10 hover:bg-indigo-800">
+                    {code}
+                  </div>
+                {:else if probable.includes(code)}
+                  <div on:click={() => describeCode(code)} class="align-middle bg-purple-800 cursor-pointer h-10 inline-block mb-2 mr-2 p-3 rounded-full text-center text-xs text-white w-10 hover:bg-purple-600">
+                    {code}
+                  </div>
+                {:else}
+                  <div on:click={() => describeCode(code)} class="align-middle bg-purple-400 cursor-pointer h-10 inline-block mb-2 mr-2 p-3 rounded-full text-center text-xs text-white w-10 hover:bg-purple-300">
+                    {code}
+                  </div>
+                {/if}
+              {/each}
+            </div>
+          </div>
+        {/if}
+      {/each}
 
-{#if view === 'birds'}
-  <p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
-  <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
-    {#each Object.entries(birds) as [bird, codes]}
-      {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
-        <div class="bird-block pb-2 text-wrap">
-          <div class="bird-name font-medium">{bird}</div>
-          <div class="breeding-codes break-words">
-            {#each codes as code, index}
-              <span on:click={() => describeCode(code)} class="cursor-pointer hover:text-red-400 hover:underline decoration-dotted">{code}</span>{#if index < codes.length - 1},&nbsp;{/if}
+      <hr class="my-3">
+      <div>
+        <p class="py-2 text-sm">
+          Legend
+        </p>
+        <div class="inline-block mr-2 pb-2 text-wrap text-xs">
+          <div class="align-middle bg-indigo-950 h-5 inline-block mb-2 mr-2 p-3 rounded-full text-center text-xs text-white w-5"></div>Confirmed
+        </div>
+        <div class="inline-block mr-2 pb-2 text-wrap text-xs">
+          <div class="align-middle bg-purple-800 h-5 inline-block mb-2 mr-2 p-3 rounded-full text-center text-xs text-white w-5"></div>Probable
+        </div>
+        <div class="inline-block mr-2 pb-2 text-wrap text-xs">
+          <div class="align-middle bg-purple-400 h-5 inline-block mb-2 mr-2 p-3 rounded-full text-center text-xs text-white w-5"></div>Possible
+        </div>
+      </div>
+    </div>
+  {/if}
+
+  {#if view === 'codes'}
+    <div class="container max-w-full px-4 py-2 text-sm w-full" id="code-first-view">
+      {#if possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
+        <div class="code-block pb-2 text-wrap">
+          <div class="bird-name font-medium">Any Breeding Code</div>
+          <div class="bird-list columns-1 md:columns-4">
+            {#each possibleBirds as bird, index}
+              {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+                <div class="w-full">{bird}</div>
+              {/if}
             {/each}
           </div>
         </div>
       {/if}
-    {/each}
-  </div>
-{/if}
 
-{#if view === 'codes'}
-  <div class="container max-w-full px-4 py-2 text-sm w-full" id="code-first-view">
-    {#if possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
-      <div class="code-block pb-2 text-wrap">
-        <div class="bird-name font-medium">Any Breeding Code</div>
-        <div class="bird-list columns-1 md:columns-4">
-          {#each possibleBirds as bird, index}
-            {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
-              <div class="w-full">{bird}</div>
-            {/if}
-          {/each}
+      {#if confirmedandProbableBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
+        <div class="code-block pb-2 text-wrap">
+          <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
+          <div class="bird-list columns-1 md:columns-4">
+            {#each confirmedandProbableBirds as bird, index}
+              {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
+                <div class="w-full">{bird}</div>
+              {/if}
+            {/each}
+          </div>
         </div>
-      </div>
-    {/if}
+      {/if}
 
-    {#if confirmedandProbableBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
-      <div class="code-block pb-2 text-wrap">
-        <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
-        <div class="bird-list columns-1 md:columns-4">
-          {#each confirmedandProbableBirds as bird, index}
-            {#if bird.toLowerCase().includes(searchBird.toLowerCase())}
-              <div class="w-full">{bird}</div>
-            {/if}
-          {/each}
+      <hr class="my-3">
+      <div>
+        <p class="py-2 text-base">
+          List of Breeding Codes
+        </p>
+        <div class="pb-2 text-wrap">
+          <div class="font-medium">Confirmed</div>
+          <div class="mt-1">
+            {#each confirmed as code}
+              <div on:click={() => describeCode(code)} class="align-middle bg-indigo-950 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-white w-11 hover:bg-indigo-800">
+                {code}
+              </div>
+            {/each}
+          </div>
         </div>
-      </div>
-    {/if}
-
-    <hr class="my-3">
-    <div>
-      <p class="py-2 text-base">
-        List of Breeding Codes
-      </p>
-      <div class="pb-2 text-wrap">
-        <div class="font-medium">Confirmed</div>
-        <div class="mt-1">
-          {#each confirmed as code}
-            <div on:click={() => describeCode(code)} class="align-middle bg-indigo-950 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-white w-11 hover:bg-indigo-800">
-              {code}
-            </div>
-          {/each}
+        <div class="pb-2 text-wrap">
+          <div class="font-medium">Probable</div>
+          <div class="mt-1">
+            {#each probable as code}
+              <div on:click={() => describeCode(code)} class="align-middle bg-purple-800 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-white w-11 hover:bg-purple-600">
+                {code}
+              </div>
+            {/each}
+          </div>
         </div>
-      </div>
-      <div class="pb-2 text-wrap">
-        <div class="font-medium">Probable</div>
-        <div class="mt-1">
-          {#each probable as code}
-            <div on:click={() => describeCode(code)} class="align-middle bg-purple-800 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-white w-11 hover:bg-purple-600">
-              {code}
-            </div>
-          {/each}
-        </div>
-      </div>
-      <div class="pb-2 text-wrap">
-        <div class="font-medium">Possible</div>
-        <div class="mt-1">
-          {#each possible as code}
-            <div on:click={() => describeCode(code)} class="align-middle bg-purple-400 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-slate-800 w-11 hover:bg-purple-300">
-              {code}
-            </div>
-          {/each}
+        <div class="pb-2 text-wrap">
+          <div class="font-medium">Possible</div>
+          <div class="mt-1">
+            {#each possible as code}
+              <div on:click={() => describeCode(code)} class="align-middle bg-purple-400 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-slate-800 w-11 hover:bg-purple-300">
+                {code}
+              </div>
+            {/each}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  {/if}
+
 {/if}
 
 <hr class="mx-4 my-3">
