@@ -336,6 +336,43 @@
         </div>
       </div>
     {/if}
+
+    <hr class="my-3">
+    <div>
+      <p class="py-2 text-base">
+        List of Breeding Codes
+      </p>
+      <div class="pb-2 text-wrap">
+        <div class="font-medium">Confirmed</div>
+        <div class="mt-1">
+          {#each confirmed as code}
+            <div on:click={() => describeCode(code)} class="align-middle bg-indigo-950 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-white w-11 hover:bg-indigo-800">
+              {code}
+            </div>
+          {/each}
+        </div>
+      </div>
+      <div class="pb-2 text-wrap">
+        <div class="font-medium">Probable</div>
+        <div class="mt-1">
+          {#each probable as code}
+            <div on:click={() => describeCode(code)} class="align-middle bg-purple-800 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-white w-11 hover:bg-purple-600">
+              {code}
+            </div>
+          {/each}
+        </div>
+      </div>
+      <div class="pb-2 text-wrap">
+        <div class="font-medium">Possible</div>
+        <div class="mt-1">
+          {#each possible as code}
+            <div on:click={() => describeCode(code)} class="align-middle bg-purple-400 cursor-pointer h-11 inline-block mb-2 mr-2 p-3 rounded-full text-center text-slate-800 w-11 hover:bg-purple-300">
+              {code}
+            </div>
+          {/each}
+        </div>
+      </div>
+    </div>
   </div>
 {/if}
 
