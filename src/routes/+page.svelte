@@ -1,6 +1,6 @@
 <script>
   import TailwindCss from '../lib/TailwindCSS.svelte';
-  import {view} from '$lib/store.js';
+  import {region, view} from '$lib/store.js';
 
   export let birds, today; 
 
@@ -159,38 +159,55 @@
 
   weeks.Febw3 = {
     'Rock Pigeon': [...confirmed, ...probable, ...possible],
+    'American Goshawk': [...confirmed, ...probable],
     'Bald Eagle': [...confirmed, ...probable],
+    'Barn Owl': [...confirmed, ...probable],
     'Great Horned Owl': [...confirmed, ...probable, ...possible],
     'Barred Owl': [...confirmed, ...probable, ...possible],
     'Red-tailed Hawk': [...confirmed, ...probable],
     'Common Raven': [...confirmed, ...probable],
     'House Sparrow': [...confirmed, ...probable, ...possible],
+    'Red Crossbill': [...confirmed, ...probable, ...possible],
   }; 
 
   weeks.Febw4 = {
     'Rock Pigeon': [...confirmed, ...probable, ...possible],
+    'American Goshawk': [...confirmed, ...probable],
     'Bald Eagle': [...confirmed, ...probable],
     'Red-tailed Hawk': [...confirmed, ...probable],
+    'Barn Owl': [...confirmed, ...probable],
     'Great Horned Owl': [...confirmed, ...probable, ...possible],
     'Barred Owl': [...confirmed, ...probable, ...possible],
+    'Short-eared Owl': [...confirmed, ...probable],
     'Common Raven': [...confirmed, ...probable],
     'Carolina Chickadee': [...confirmed, ...probable],
     'House Sparrow': [...confirmed, ...probable, ...possible],
+    'Red Crossbill': [...confirmed, ...probable, ...possible],
   }; 
 
   weeks.Mar1 = {
     'Wild Turkey': [...confirmed, ...probable],
+    'American Goshawk': [...confirmed, ...probable],
     'Rock Pigeon': [...confirmed, ...probable, ...possible],
     'Bald Eagle': [...confirmed, ...probable],
     'Red-tailed Hawk': [...confirmed, ...probable],
     'Eastern Screech-Owl': [...confirmed, ...probable],
     'Great Horned Owl': [...confirmed, ...probable, ...possible],
     'Barred Owl': [...confirmed, ...probable, ...possible],
+    'Long-eared Owl': [...confirmed, ...probable],
+    'Short-eared Owl': [...confirmed, ...probable, ...possible],
     'American Kestrel': [...confirmed, ...probable],
     'Common Raven': [...confirmed, ...probable, ...possible],
     'Carolina Chickadee': [...confirmed, ...probable],
     'House Sparrow': [...confirmed, ...probable, ...possible],
+    'Red Crossbill': [...confirmed, ...probable, ...possible],
   }; 
+
+  const phillyBreeders = [
+    'Wild Turkey', 'Rock Pigeon', 'Bald Eagle', 'Red-tailed Hawk', 'Eastern Screech-Owl',
+    'Great Horned Owl', 'Barred Owl', 'American Kestrel', 'Common Raven', 'Carolina Chickadee',
+    'House Sparrow',
+  ];
 
 
   const getCurrentWeek = function (today) {
@@ -215,12 +232,27 @@
   today = new Date();
   const currentWeek = getCurrentWeek(today);
 
-  birds = { ...weeks[currentWeek]};
+  const getBirds = function() {
+    const birdsWeek = {...weeks[currentWeek]};
+    let birds;
+    if ($region === 'philly') {
+      const filteredEntries = Object.entries(birdsWeek).filter(([key, value]) => phillyBreeders.includes(key)); 
+      birds = Object.fromEntries(filteredEntries);
+    } else {
+      birds = birdsWeek;
+    }
 
-  const possibleBirds = Object.keys(birds).filter(bird => birds[bird].includes('H')); 
-  const probableBirds = Object.keys(birds).filter(bird => birds[bird].includes('S7') && !possibleBirds.includes(bird)); 
-  const confirmedBirds = Object.keys(birds).filter(bird => birds[bird].includes('CN') && !possibleBirds.includes(bird) && !probableBirds.includes(bird)); 
-  const confirmedandProbableBirds = [...confirmedBirds, ...probableBirds];
+    const possibleBirds = Object.keys(birds).filter(bird => birds[bird].includes('H')); 
+    const probableBirds = Object.keys(birds).filter(bird => birds[bird].includes('S7') && !possibleBirds.includes(bird)); 
+    const confirmedBirds = Object.keys(birds).filter(bird => birds[bird].includes('CN') && !possibleBirds.includes(bird) && !probableBirds.includes(bird)); 
+    const confirmedandProbableBirds = [...confirmedBirds, ...probableBirds];
+
+    return [birds, possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds];
+  };
+
+  let possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds;
+
+  $: $region, [birds, possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds] = getBirds();
 
 </script>
 
@@ -265,18 +297,33 @@
 
 <div class="container max-w-full px-4 text-sm w-full" >
   <div class="columns-1 md:columns-2">
-    <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
-      <legend class="px-2">View</legend>
+    <div class="columns-2">
+      <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
+        <legend class="px-2">View</legend>
 
-      <div class="inline-block pr-2 py-1">
-        <input id="birds-view" type="radio" bind:group={$view} value="birds" />
-        <label for="birds-view">Birds</label>
-      </div>
-      <div class="inline-block pr-2 py-1">
-        <input id="codes-view" type="radio" bind:group={$view} value="codes" />
-        <label for="codes-view">Codes</label>
-      </div>
-    </fieldset>
+        <div class="inline-block pr-2 py-1">
+          <input id="birds-view" type="radio" bind:group={$view} value="birds" />
+          <label for="birds-view">Birds</label>
+        </div>
+        <div class="inline-block pr-2 py-1">
+          <input id="codes-view" type="radio" bind:group={$view} value="codes" />
+          <label for="codes-view">Codes</label>
+        </div>
+      </fieldset>
+      
+      <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
+        <legend class="px-2">Region</legend>
+
+        <div class="inline-block pr-2 py-1">
+          <input id="philly-region" type="radio" bind:group={$region} value="philly" />
+          <label for="philly-region">Philly</label>
+        </div>
+        <div class="inline-block pr-2 py-1">
+          <input id="pa-region" type="radio" bind:group={$region} value="pa" />
+          <label for="pa-region">PA</label>
+        </div>
+      </fieldset>
+    </div>
     
     <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
       <legend class="px-2">Search</legend>
@@ -287,7 +334,7 @@
 
 {#if Object.keys(birds).filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length <= 0}
   <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
-    <p class="py-2">No birds found matching your search term</p>
+    <p class="py-2">No birds found matching your filters</p>
   </div>
 {:else}
   {#if $view === 'birds'}
@@ -338,7 +385,7 @@
 
   {#if $view === 'codes'}
     <div class="container max-w-full px-4 py-2 text-sm w-full" id="code-first-view">
-      {#if possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
+      {#if possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase()))}
         <div class="code-block pb-2 text-wrap">
           <div class="bird-name font-medium">Any Breeding Code</div>
           <div class="bird-list columns-1 md:columns-4">
@@ -351,7 +398,7 @@
         </div>
       {/if}
 
-      {#if confirmedandProbableBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
+      {#if confirmedandProbableBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase()))}
         <div class="code-block pb-2 text-wrap">
           <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
           <div class="bird-list columns-1 md:columns-4">
