@@ -1,9 +1,9 @@
 <script>
   import TailwindCss from '../lib/TailwindCSS.svelte';
+  import {view} from '$lib/store.js';
 
   export let birds, today; 
 
-  let view = 'birds';
   let searchBird = '';
 
   const confirmed = ['PE', 'CN', 'DD', 'UN', 'ON', 'FL', 'CF', 'FY', 'FS', 'NE', 'NY'];
@@ -269,11 +269,11 @@
       <legend class="px-2">View</legend>
 
       <div class="inline-block pr-2 py-1">
-        <input id="birds-view" type="radio" bind:group={view} value="birds" />
+        <input id="birds-view" type="radio" bind:group={$view} value="birds" />
         <label for="birds-view">Birds</label>
       </div>
       <div class="inline-block pr-2 py-1">
-        <input id="codes-view" type="radio" bind:group={view} value="codes" />
+        <input id="codes-view" type="radio" bind:group={$view} value="codes" />
         <label for="codes-view">Codes</label>
       </div>
     </fieldset>
@@ -290,7 +290,7 @@
     <p class="py-2">No birds found matching your search term</p>
   </div>
 {:else}
-  {#if view === 'birds'}
+  {#if $view === 'birds'}
     <p class="px-4 py-2 text-xs">See <a href="#code-explanation" class="cursor-pointer text-red-400 underline">bottom</a> or click on the code to get an explanation of the breeding codes</p>
     <div class="container max-w-full px-4 text-sm w-full" id="bird-first-view">
       {#each Object.entries(birds) as [bird, codes]}
@@ -336,7 +336,7 @@
     </div>
   {/if}
 
-  {#if view === 'codes'}
+  {#if $view === 'codes'}
     <div class="container max-w-full px-4 py-2 text-sm w-full" id="code-first-view">
       {#if possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase())).length > 0}
         <div class="code-block pb-2 text-wrap">
