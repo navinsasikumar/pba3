@@ -5,10 +5,39 @@ import {
 } from '$lib/breedingCodes.js';
 
 export const phillyBreeders = [
-  'Wild Turkey', 'Rock Pigeon', 'Bald Eagle', 'Red-tailed Hawk', 'Eastern Screech-Owl',
-  'Great Horned Owl', 'Barred Owl', 'American Kestrel', 'Common Raven', 'Carolina Chickadee',
-  'House Sparrow',
+  'Canada Goose', 'Mute Swan', 'Wood Duck', 'Mallard', 'American Black Duck',
+  'Hooded Merganser', 'Common Merganser', 'Wild Turkey', 'Pied-billed Grebe', 'Rock Pigeon',
+  'Mourning Dove', 'Yellow-billed Cuckoo', 'black-billed Cuckoo', 'Common Nighthawk', 'Chimney Swift',
+  'Ruby-throated Hummingbird', 'Vriginia Rail', 'Sora', 'Common Gallinule', 'American Coot',
+  'Killdeer', 'Wilson\'s Snipe', 'Spotted Sandpiper', 'Ring-billed Gull', 'Double-crested Cormorant',
+  'Least Bittern', 'Great Blue Heron', 'Great Egret', 'Green Heron', 'Black-crowned Night Heron',
+  'Black Vulture', 'Turkey Vulture', 'Osprey', 'Cooper\'s Hawk', 'Bald Eagle', 
+  'Red-shouldered Hawk', 'Red-tailed Hawk', 'Eastern Screech-Owl', 'Great Horned Owl', 'Barred Owl',
+  'Belted Kingfisher', 'Red-bellied Woodpecker', 'Downy Woodpecker', 'Hairy Woodpecker', 'Northern Flicker',
+  'Pileated Woodpecker', 'American Kestrel', 'Peregrine Falcon', 'Eastern Wood-Pewee', 'Acadian Flycatcher',
+  'Willow Flycatcher', 'Eastern Phoebe', 'Great Crested Flycatcher', 'Eastern Kingbird', 'White-eyed Vireo',
+  'Yellow-throated Vireo', 'Warbling Vireo', 'Red-eyed Vireo', 'Blue Jay', 'American Crow',
+  'Fish Crow', 'Common Raven', 'Carolina Chickadee', 'Tufted Titmouse', 'Horned Lark',
+  'Bank Swallow', 'Tree Swallow', 'Northern Rough-winged Swallow', 'Purple Martin', 'Barn Swallow',
+  'Cliff Swallow', 'White-breasted Nuthatch', 'Blue-gray Gnatcatcher', 'House Wren', 'Marsh Wren',
+  'Carolina Wren', 'European Starling', 'Gray Catbird', 'Brown Thrasher', 'Northern Mockingbird',
+  'Eastern Bluebird', 'Veery', 'Wood Thrush', 'American Robin', 'Cedar Waxwing',
+  'House Sparrow', 'House Finch', 'American Goldfinch', 'Chipping Sparrow', 'Field Sparrow',
+  'Song Sparrow', 'Swamp Sparrow', 'Eastern Towhee', 'Eastern Meadowlark', 'Orchard Oriole',
+  'Baltimore Oriole', 'Red-winged Blackbird', 'Brown-headed Cowbird', 'Common Grackle', 'Ovenbird',
+  'Louisiana Waterthrush', 'Blue-winged Warbler', 'Common Yellowthroat', 'American Redstart', 'Northern Parula',
+  'Yellow Warbler', 'Pine Warbler', 'Summer Tanager', 'Scarlet Tanager', 'Northern Cardinal', 
+  'Blue Grosbeak', 'Indigo Bunting',
 ];
+
+const notin2020Survey = [
+  'Hooded Merganser', 'Common Merganser', 'Virginia Rail', 'Sora', 'Wilson\'s Snipe',
+  'Black-crowned Night Heron', 'Horned Lark', 'Cliff Swallow', 'Summer Tanager',
+]
+
+const in2020SurveyButNotHere = [
+  'Laughing Gull', 'Great Black-backed Gull', 'Caspian Tern'
+]
 
 export const weeks = {
   Janw1: {}, Janw2: {}, Janw3: {}, Janw4: {},
