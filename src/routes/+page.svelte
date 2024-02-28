@@ -228,7 +228,7 @@
 
 <!---Modal -->
 {#if modalVisible}
-  <div on:click={() => closeModal()} class="absolute insert-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal">
+  <div on:click={() => closeModal()} class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal">
     <div on:click|stopPropagation class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
       {#each Object.entries(breedingCodeDetails) as [code, details]}
         {#if codeVisibility[code]}
