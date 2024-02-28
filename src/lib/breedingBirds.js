@@ -25,14 +25,70 @@ export const weeks = {
   Decw1: {}, Decw2: {}, Decw3: {}, Decw4: {},
 };
 
-weeks.Febw3 = {
+weeks.Jan1 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+};
+
+weeks.Jan2 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+};
+
+weeks.Jan3 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Barred Owl': [...confirmed, ...probable, ...possible],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+};
+
+weeks.Jan4 = {
   'Rock Pigeon': [...confirmed, ...probable, ...possible],
   'American Goshawk': [...confirmed, ...probable],
   'Bald Eagle': [...confirmed, ...probable],
   'Barn Owl': [...confirmed, ...probable],
   'Great Horned Owl': [...confirmed, ...probable, ...possible],
   'Barred Owl': [...confirmed, ...probable, ...possible],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+};
+
+weeks.Febw1 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'American Goshawk': [...confirmed, ...probable],
+  'Bald Eagle': [...confirmed, ...probable],
   'Red-tailed Hawk': [...confirmed, ...probable],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Barred Owl': [...confirmed, ...probable, ...possible],
+  'House Sparrow': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+};
+
+weeks.Febw2 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'American Goshawk': [...confirmed, ...probable],
+  'Bald Eagle': [...confirmed, ...probable],
+  'Red-tailed Hawk': [...confirmed, ...probable],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Barred Owl': [...confirmed, ...probable, ...possible],
+  'House Sparrow': [...confirmed, ...probable, ...possible],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Febw3 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'American Goshawk': [...confirmed, ...probable],
+  'Bald Eagle': [...confirmed, ...probable],
+  'Red-tailed Hawk': [...confirmed, ...probable],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Barred Owl': [...confirmed, ...probable, ...possible],
   'Common Raven': [...confirmed, ...probable],
   'House Sparrow': [...confirmed, ...probable, ...possible],
   'Red Crossbill': [...confirmed, ...probable, ...possible],
