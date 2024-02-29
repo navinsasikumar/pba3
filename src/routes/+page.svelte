@@ -215,7 +215,7 @@
 
   {#if $view === 'codes'}
     <div class="container max-w-full px-4 py-2 text-sm w-full" id="code-first-view">
-      {#if possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase()))}
+      {#if possibleBirds.length > 0 && possibleBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase()))}
         <div class="code-block pb-2 text-wrap">
           <div class="bird-name font-medium">Any Breeding Code</div>
           <div class="bird-list columns-1 md:columns-4">
@@ -228,7 +228,7 @@
         </div>
       {/if}
 
-      {#if confirmedandProbableBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase()))}
+      {#if confirmedandProbableBirds.length > 0 && confirmedandProbableBirds.filter(bird => bird.toLowerCase().includes(searchBird.toLowerCase()))}
         <div class="code-block pb-2 text-wrap">
           <div class="bird-name font-medium">Confirmed or Probable Breeding Code</div>
           <div class="bird-list columns-1 md:columns-4">
