@@ -3889,3 +3889,53 @@ weeks.Octw4 = {
   'Red Crossbill': [...confirmed, ...probable, ...possible],
   'Northern Cardinal': [...confirmed, ...probable],
 }; 
+
+weeks.Novw1 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Novw2 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Novw3 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Novw4 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Decw1 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Decw2 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Decw3 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
+
+weeks.Decw4 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Great Horned Owl': [...confirmed, ...probable, ...possible],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+}; 
