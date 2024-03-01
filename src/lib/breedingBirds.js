@@ -3859,3 +3859,33 @@ weeks.Sepw4 = {
   'American Goldfinch': [...confirmed, ...probable],
   'Northern Cardinal': [...confirmed, ...probable],
 }; 
+
+weeks.Octw1 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Eurasian Collared-Dove': [...confirmed, ...probable],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+  'American Goldfinch': [...confirmed, ...probable],
+  'Northern Cardinal': [...confirmed, ...probable],
+}; 
+
+weeks.Octw2 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+  'Northern Cardinal': [...confirmed, ...probable],
+}; 
+
+weeks.Octw3 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+  'Northern Cardinal': [...confirmed, ...probable],
+}; 
+
+weeks.Octw4 = {
+  'Rock Pigeon': [...confirmed, ...probable, ...possible],
+  'Barn Owl': [...confirmed, ...probable],
+  'Red Crossbill': [...confirmed, ...probable, ...possible],
+  'Northern Cardinal': [...confirmed, ...probable],
+}; 
