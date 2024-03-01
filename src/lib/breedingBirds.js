@@ -54,21 +54,21 @@ export const weeks = {
   Decw1: {}, Decw2: {}, Decw3: {}, Decw4: {},
 };
 
-weeks.Jan1 = {
+weeks.Janw1 = {
   'Rock Pigeon': [...confirmed, ...probable, ...possible],
   'Barn Owl': [...confirmed, ...probable],
   'Great Horned Owl': [...confirmed, ...probable, ...possible],
   'Red Crossbill': [...confirmed, ...probable, ...possible],
 };
 
-weeks.Jan2 = {
+weeks.Janw2 = {
   'Rock Pigeon': [...confirmed, ...probable, ...possible],
   'Barn Owl': [...confirmed, ...probable],
   'Great Horned Owl': [...confirmed, ...probable, ...possible],
   'Red Crossbill': [...confirmed, ...probable, ...possible],
 };
 
-weeks.Jan3 = {
+weeks.Janw3 = {
   'Rock Pigeon': [...confirmed, ...probable, ...possible],
   'Barn Owl': [...confirmed, ...probable],
   'Great Horned Owl': [...confirmed, ...probable, ...possible],
@@ -76,7 +76,7 @@ weeks.Jan3 = {
   'Red Crossbill': [...confirmed, ...probable, ...possible],
 };
 
-weeks.Jan4 = {
+weeks.Janw4 = {
   'Rock Pigeon': [...confirmed, ...probable, ...possible],
   'American Goshawk': [...confirmed, ...probable],
   'Bald Eagle': [...confirmed, ...probable],
@@ -138,7 +138,7 @@ weeks.Febw4 = {
   'Red Crossbill': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Mar1 = {
+weeks.Marw1 = {
   'Wild Turkey': [...confirmed, ...probable],
   'American Goshawk': [...confirmed, ...probable],
   'Rock Pigeon': [...confirmed, ...probable, ...possible],
@@ -157,7 +157,7 @@ weeks.Mar1 = {
   'Red Crossbill': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Mar2 = {
+weeks.Marw2 = {
   'Canada Goose': [...confirmed, ...probable],
   'Wild Turkey': [...confirmed, ...probable],
   'Rock Pigeon': [...confirmed, ...probable, ...possible],
@@ -186,7 +186,7 @@ weeks.Mar2 = {
   'Northern Cardinal': [...confirmed, ...probable],
 }; 
 
-weeks.Mar3 = {
+weeks.Marw3 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable],
   'Mallard': [...confirmed, ...probable],
@@ -235,7 +235,7 @@ weeks.Mar3 = {
   'Northern Cardinal': [...confirmed, ...probable],
 }; 
 
-weeks.Mar4 = {
+weeks.Marw4 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable],
   'Wood Duck': [...confirmed, ...probable],
@@ -297,7 +297,7 @@ weeks.Mar4 = {
   'Northern Cardinal': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Apr1 = {
+weeks.Aprw1 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable],
   'Trumpeter Swan': [...confirmed, ...probable],
@@ -367,7 +367,7 @@ weeks.Apr1 = {
   'Northern Cardinal': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Apr2 = {
+weeks.Aprw2 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable],
   'Trumpeter Swan': [...confirmed, ...probable],
@@ -448,7 +448,7 @@ weeks.Apr2 = {
   'Northern Cardinal': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Apr3 = {
+weeks.Aprw3 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable],
   'Trumpeter Swan': [...confirmed, ...probable],
@@ -544,7 +544,7 @@ weeks.Apr3 = {
   'Northern Cardinal': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Apr4 = {
+weeks.Aprw4 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable],
   'Trumpeter Swan': [...confirmed, ...probable],
@@ -657,7 +657,7 @@ weeks.Apr4 = {
   'Northern Cardinal': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.May1 = {
+weeks.Mayw1 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -791,7 +791,7 @@ weeks.May1 = {
   'Rose-breasted Grosbeak': [...confirmed, ...probable],
 }; 
 
-weeks.May2 = {
+weeks.Mayw2 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -945,7 +945,7 @@ weeks.May2 = {
   'Indigo Bunting': [...confirmed, ...probable],
 }; 
 
-weeks.May3 = {
+weeks.Mayw3 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -1138,7 +1138,7 @@ weeks.May3 = {
   'Indigo Bunting': [...confirmed, ...probable],
 }; 
 
-weeks.May4 = {
+weeks.Mayw4 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -1350,7 +1350,7 @@ weeks.May4 = {
   'Dickcissel': [...confirmed, ...probable],
 }; 
 
-weeks.Jun1 = {
+weeks.Junw1 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -1564,7 +1564,7 @@ weeks.Jun1 = {
   'Dickcissel': [...confirmed, ...probable],
 }; 
 
-weeks.Jun2 = {
+weeks.Junw2 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -1778,7 +1778,7 @@ weeks.Jun2 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Jun3 = {
+weeks.Junw3 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -1992,7 +1992,7 @@ weeks.Jun3 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Jun4 = {
+weeks.Junw4 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -2206,7 +2206,7 @@ weeks.Jun4 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Jul1 = {
+weeks.Julw1 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -2420,7 +2420,7 @@ weeks.Jul1 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Jul2 = {
+weeks.Julw2 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -2634,7 +2634,7 @@ weeks.Jul2 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Jul3 = {
+weeks.Julw3 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -2848,7 +2848,7 @@ weeks.Jul3 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Jul4 = {
+weeks.Julw4 = {
   'Canada Goose': [...confirmed, ...probable, ...possible],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -3061,7 +3061,7 @@ weeks.Jul4 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Aug1 = {
+weeks.Augw1 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -3271,7 +3271,7 @@ weeks.Aug1 = {
   'Dickcissel': [...confirmed, ...probable, ...possible],
 }; 
 
-weeks.Aug2 = {
+weeks.Augw2 = {
   'Canada Goose': [...confirmed, ...probable],
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
@@ -3465,7 +3465,7 @@ weeks.Aug2 = {
   'Dickcissel': [...confirmed, ...probable],
 }; 
 
-weeks.Aug3 = {
+weeks.Augw3 = {
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
   'Wood Duck': [...confirmed, ...probable],
@@ -3623,7 +3623,7 @@ weeks.Aug3 = {
   'Indigo Bunting': [...confirmed, ...probable],
 }; 
 
-weeks.Aug4 = {
+weeks.Augw4 = {
   'Mute Swan': [...confirmed, ...probable, ...possible],
   'Trumpeter Swan': [...confirmed, ...probable, ...possible],
   'Wood Duck': [...confirmed, ...probable],
