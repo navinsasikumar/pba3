@@ -60,9 +60,9 @@
   };
 
   today = new Date();
-  const currentWeek = getCurrentWeek(today);
 
-  const getBirds = function() {
+  const getBirds = function(dateString) {
+    const currentWeek = getCurrentWeek(new Date(`${dateString}T06:00:00.000-05:00`));
     const birdsWeek = {...weeks[currentWeek]};
     let birds;
     if ($region === 'philly') {
@@ -81,8 +81,9 @@
   };
 
   let possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds;
-
-  $: $region, [birds, possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds] = getBirds();
+  let dateString = today.toISOString().substring(0, 10);
+  
+  $: $region, [birds, possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds] = getBirds(dateString);
 
 </script>
 
@@ -121,7 +122,8 @@
 <p class="px-4 py-2">
   Safe breeding codes to use on 
   <span class="text-red-400">
-    {today.toLocaleString("default", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+    <!-- {today.toLocaleString("default", { weekday: "long", year: "numeric", month: "long", day: "numeric" })} -->
+    <input type="date" min="2024-01-01" max="2028-12-31" bind:value={dateString} />
   </span>
 </p>
 
