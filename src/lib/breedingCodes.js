@@ -3,6 +3,56 @@ export const probable = ['S7', 'M', 'P', 'T', 'C', 'N', 'A', 'B'];
 export const possible = ['H', 'S'];
 
 export const breedingCodeDetails = {
+  H: {
+    category: 'possible',
+    description: 'Adult in suitable nesting habitat during its breeding season. Important to note both the habitat component and the breeding season component (which can be very different for residents vs migrants).',
+    title: 'In Appropriate Habitat',
+  },
+  S: {
+    category: 'possible',
+    description: 'This should be used when you encounter any bird singing. This code is also used for non-songbirds giving their primary vocalization, such as woodpecker drumming, owl calls, rail vocalizations, and woodcock peenting. If in doubt, refer to the Acceptable Codes Chart. If a bird is heard singing at the same place on a second trip during the breeding season, it may qualify as S7.',
+    title: 'Singing Bird',
+  },
+  S7: {
+    category: 'probable',
+    description: 'Singing bird present at same location on at least two occasions 7 or more days apart. Do not use if you observed the species singing a week earlier elsewhere in your block. This behavior presumes a permanent territory. Observations must be made within the same breeding season; observations from different years do not apply.',
+    title: 'Singing Bird Present 7+ Days',
+  },
+  M: {
+    category: 'probable',
+    description: 'Multiple (7 or more) singing or territorial birds of a species detected within a block within a single breeding season. If you are submitting separate checklists for different locations and habitats in your block (recommended) and you don’t have all 7 birds on a single checklist, use this code on the checklist where you reach a total of 7 birds and make a note in the comment field that you are including birds from other checklists in the block.',
+    title: 'Multiple (7+) Singing Birds',
+  },
+  P: {
+    category: 'probable',
+    description: 'Pair observed in suitable nesting habitat. Only use this code when you are fairly certain that a mated pair of birds has been observed. Look for behavioral cues to determine if you have a male-female pair, particularly in species where males and females look the same.',
+    title: 'Pair in Suitable Habitat',
+  },
+  T: {
+    category: 'probable',
+    description: 'Permanent territory presumed through defense of breeding territory by fighting or chasing. While this is generally used for individuals of the same species, an interaction between members of different species may fall under this code when it appears to be territorial defense. Also see “A – Agitated Behavior.” Because territoriality involves the defense of a fixed area, it may be useful to map locations of individuals to determine if they are defending the same general area when surveying the block on future visits.',
+    title: 'Territorial Defense',
+  },
+  C: {
+    category: 'probable',
+    description: 'Courtship behavior or copulation between a male and a female. Courtship behavior includes transfer of food, displays, and grooming between a pair of birds.',
+    title: 'Courtship, Display or Copulation',
+  },
+  N: {
+    category: 'probable',
+    description: 'Repeated visits to a probable nest site. This is especially useful for cavity nesters or for a shrub-nesting species that flies into the same thicket and disappears on several occasions.',
+    title: 'Visiting Probable Nest Site',
+  },
+  A: {
+    category: 'probable',
+    description: 'Agitated behavior or anxiety calls from adults indicating a nest site or young in the vicinity. This code refers to a stronger reaction to intruders than those exhibited by “T – Territorial Defense,” usually against brood parasites, nest predators, and humans. Do not use this code for agitation induced by “pishing” or playing recordings. This code also excludes mobbing behavior that species engage in year-round (e.g., mobbing an owl).',
+    title: 'Agitated Behavior',
+  },
+  B: {
+    category: 'probable',
+    description: 'Nest-building by wrens or excavation of cavities by woodpeckers. Wrens may build “dummy” nests before the female selects a nest. Woodpeckers often drill holes for roosting.',
+    title: 'Wren/Woodpecker Nest Building',
+  },
   PE: {
     category: 'confirmed',
     description: 'Physiological evidence of breeding based on a bird in the hand. This code is used primarily by bird banders and includes evidence such as an incubation (brood) patch, cloacal protuberance, or an egg in the oviduct.',
@@ -57,55 +107,5 @@ export const breedingCodeDetails = {
     category: 'confirmed',
     description: 'Nest with young seen or heard. Keep your distance so nestlings are not prematurely flushed from the nest. Include the nestlings in your species count. Presence of cowbird young confirms both the cowbird and the host species.',
     title: 'Nest with Young',
-  },
-  S7: {
-    category: 'probable',
-    description: 'Singing bird present at same location on at least two occasions 7 or more days apart. Do not use if you observed the species singing a week earlier elsewhere in your block. This behavior presumes a permanent territory. Observations must be made within the same breeding season; observations from different years do not apply.',
-    title: 'Singing Bird Present 7+ Days',
-  },
-  M: {
-    category: 'probable',
-    description: 'Multiple (7 or more) singing or territorial birds of a species detected within a block within a single breeding season. If you are submitting separate checklists for different locations and habitats in your block (recommended) and you don’t have all 7 birds on a single checklist, use this code on the checklist where you reach a total of 7 birds and make a note in the comment field that you are including birds from other checklists in the block.',
-    title: 'Multiple (7+) Singing Birds',
-  },
-  P: {
-    category: 'probable',
-    description: 'Pair observed in suitable nesting habitat. Only use this code when you are fairly certain that a mated pair of birds has been observed. Look for behavioral cues to determine if you have a male-female pair, particularly in species where males and females look the same.',
-    title: 'Pair in Suitable Habitat',
-  },
-  T: {
-    category: 'probable',
-    description: 'Permanent territory presumed through defense of breeding territory by fighting or chasing. While this is generally used for individuals of the same species, an interaction between members of different species may fall under this code when it appears to be territorial defense. Also see “A – Agitated Behavior.” Because territoriality involves the defense of a fixed area, it may be useful to map locations of individuals to determine if they are defending the same general area when surveying the block on future visits.',
-    title: 'Territorial Defense',
-  },
-  C: {
-    category: 'probable',
-    description: 'Courtship behavior or copulation between a male and a female. Courtship behavior includes transfer of food, displays, and grooming between a pair of birds.',
-    title: 'Courtship, Display or Copulation',
-  },
-  N: {
-    category: 'probable',
-    description: 'Repeated visits to a probable nest site. This is especially useful for cavity nesters or for a shrub-nesting species that flies into the same thicket and disappears on several occasions.',
-    title: 'Visiting Probable Nest Site',
-  },
-  A: {
-    category: 'probable',
-    description: 'Agitated behavior or anxiety calls from adults indicating a nest site or young in the vicinity. This code refers to a stronger reaction to intruders than those exhibited by “T – Territorial Defense,” usually against brood parasites, nest predators, and humans. Do not use this code for agitation induced by “pishing” or playing recordings. This code also excludes mobbing behavior that species engage in year-round (e.g., mobbing an owl).',
-    title: 'Agitated Behavior',
-  },
-  B: {
-    category: 'probable',
-    description: 'Nest-building by wrens or excavation of cavities by woodpeckers. Wrens may build “dummy” nests before the female selects a nest. Woodpeckers often drill holes for roosting.',
-    title: 'Wren/Woodpecker Nest Building',
-  },
-  H: {
-    category: 'possible',
-    description: 'Adult in suitable nesting habitat during its breeding season. Important to note both the habitat component and the breeding season component (which can be very different for residents vs migrants).',
-    title: 'In Appropriate Habitat',
-  },
-  S: {
-    category: 'possible',
-    description: 'This should be used when you encounter any bird singing. This code is also used for non-songbirds giving their primary vocalization, such as woodpecker drumming, owl calls, rail vocalizations, and woodcock peenting. If in doubt, refer to the Acceptable Codes Chart. If a bird is heard singing at the same place on a second trip during the breeding season, it may qualify as S7.',
-    title: 'Singing Bird',
   },
 };
