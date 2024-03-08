@@ -1,6 +1,6 @@
 <script>
   import TailwindCss from '../lib/TailwindCSS.svelte';
-  import {region, view} from '$lib/store.js';
+  import {region, view, sortOrder} from '$lib/store.js';
   import {
     breedingCodeDetails,
     confirmed,
@@ -12,7 +12,7 @@
     weeks,
   } from '$lib/breedingBirds.js';
 
-  export let birds, today; 
+  export let birds, today;
 
   let searchBird = '';
 
@@ -64,17 +64,26 @@
   const getBirds = function(dateString) {
     const currentWeek = getCurrentWeek(new Date(`${dateString}T06:00:00.000-05:00`));
     const birdsWeek = {...weeks[currentWeek]};
-    let birds;
+    let filteredBirds, birds;
     if ($region === 'philly') {
-      const filteredEntries = Object.entries(birdsWeek).filter(([key, value]) => phillyBreeders.includes(key)); 
-      birds = Object.fromEntries(filteredEntries);
+      const filteredEntries = Object.entries(birdsWeek).filter(([key, value]) => phillyBreeders.includes(key));
+      filteredBirds = Object.fromEntries(filteredEntries);
     } else {
-      birds = birdsWeek;
+      filteredBirds = birdsWeek;
     }
 
-    const possibleBirds = Object.keys(birds).filter(bird => birds[bird].includes('H')); 
-    const probableBirds = Object.keys(birds).filter(bird => birds[bird].includes('S7') && !possibleBirds.includes(bird)); 
-    const confirmedBirds = Object.keys(birds).filter(bird => birds[bird].includes('CN') && !possibleBirds.includes(bird) && !probableBirds.includes(bird)); 
+    if ($sortOrder === 'alphabetical') {
+      birds = Object.keys(filteredBirds).sort().reduce((obj, key) => {
+        obj[key] = filteredBirds[key];
+        return obj;
+      }, {});
+    } else {
+      birds = {...filteredBirds};
+    }
+
+    const possibleBirds = Object.keys(birds).filter(bird => birds[bird].includes('H'));
+    const probableBirds = Object.keys(birds).filter(bird => birds[bird].includes('S7') && !possibleBirds.includes(bird));
+    const confirmedBirds = Object.keys(birds).filter(bird => birds[bird].includes('CN') && !possibleBirds.includes(bird) && !probableBirds.includes(bird));
     const confirmedandProbableBirds = [...confirmedBirds, ...probableBirds];
 
     return [birds, possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds];
@@ -82,8 +91,8 @@
 
   let possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds;
   let dateString = today.toISOString().substring(0, 10);
-  
-  $: $region, [birds, possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds] = getBirds(dateString);
+
+  $: $region, $sortOrder, [birds, possibleBirds, probableBirds, confirmedBirds, confirmedandProbableBirds] = getBirds(dateString);
 
 </script>
 
@@ -97,7 +106,7 @@
         {#if codeVisibility[code]}
           <div>
             <div class="modal-header">
-              {code} – {details.title} ({details.category}) 
+              {code} – {details.title} ({details.category})
             </div>
             <hr class="my-3">
             <div class="modal-body text-sm">
@@ -120,7 +129,7 @@
   <h1>Breeding Codes for PBA3</h1>
 </div>
 <p class="px-4 py-2">
-  Safe breeding codes to use on 
+  Safe breeding codes to use on
   <span class="text-red-400">
     <!-- {today.toLocaleString("default", { weekday: "long", year: "numeric", month: "long", day: "numeric" })} -->
     <input type="date" min="2024-01-01" max="2028-12-31" bind:value={dateString} />
@@ -142,7 +151,7 @@
           <label for="codes-view">Codes</label>
         </div>
       </fieldset>
-      
+
       <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
         <legend class="px-2">Region</legend>
 
@@ -156,11 +165,26 @@
         </div>
       </fieldset>
     </div>
-    
-    <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
-      <legend class="px-2">Search</legend>
-      <input type="text" bind:value={searchBird} class="px-2 py-1 rounded w-full" placeholder="Search for a bird" />
-    </fieldset>
+
+    <div class="columns-2">
+      <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
+        <legend class="px-2">Sort</legend>
+
+        <div class="inline-block pr-2 py-1">
+          <input id="taxonomic-sort" type="radio" bind:group={$sortOrder} value="taxonomic" />
+          <label for="taxonomic-sort">Taxonomic</label>
+        </div>
+        <div class="inline-block pr-2 py-1">
+          <input id="alphabetical-srt" type="radio" bind:group={$sortOrder} value="alphabetical" />
+          <label for=alphabetical-sort>Alphabetical</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="border border-solid border-gray-300 p-2 rounded-md">
+        <legend class="px-2">Search</legend>
+        <input type="text" bind:value={searchBird} class="px-2 py-1 rounded w-full" placeholder="Search for a bird" />
+      </fieldset>
+    </div>
   </div>
 </div>
 
