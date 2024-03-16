@@ -1,4 +1,4 @@
-export const confirmed = ['PE', 'CN', 'DD', 'UN', 'ON', 'FL', 'CF', 'FY', 'FS', 'NE', 'NY'];
+export const confirmed = ['PE', 'CN', 'NB', 'DD', 'UN', 'ON', 'FL', 'CF', 'FY', 'FS', 'NE', 'NY'];
 export const probable = ['S7', 'M', 'P', 'T', 'C', 'N', 'A', 'B'];
 export const possible = ['H', 'S'];
 
@@ -62,6 +62,11 @@ export const breedingCodeDetails = {
     category: 'confirmed',
     description: 'Adult carrying nesting material to an unseen nest, such as sticks, grass, mud, and cobwebs. For raptors, be sure the material is not simply incidental to prey capture/transport. For wrens, use B.',
     title: 'Carrying Nesting Material',
+  },
+  NB: {
+    category: 'confirmed',
+    description: 'Nest-building observed at the actual nest site, excluding wrens and woodpeckers.',
+    title: 'Nest Building',
   },
   DD: {
     category: 'confirmed',
