@@ -22,7 +22,7 @@ export const phillyBreeders = [
   'Cliff Swallow', 'White-breasted Nuthatch', 'Blue-gray Gnatcatcher', 'House Wren', 'Marsh Wren',
   'Carolina Wren', 'European Starling', 'Gray Catbird', 'Brown Thrasher', 'Northern Mockingbird',
   'Eastern Bluebird', 'Veery', 'Wood Thrush', 'American Robin', 'Cedar Waxwing',
-  'House Sparrow', 'House Finch', 'American Goldfinch', 'Chipping Sparrow', 'Field Sparrow',
+  'House Sparrow', 'House Finch', 'American Goldfinch', 'Chipping Sparrow', 'Field Sparrow', 'Savannah Sparrow',
   'Song Sparrow', 'Swamp Sparrow', 'Eastern Towhee', 'Eastern Meadowlark', 'Orchard Oriole',
   'Baltimore Oriole', 'Red-winged Blackbird', 'Brown-headed Cowbird', 'Common Grackle', 'Ovenbird',
   'Louisiana Waterthrush', 'Blue-winged Warbler', 'Common Yellowthroat', 'American Redstart', 'Northern Parula',
