@@ -216,7 +216,7 @@ weeks.Marw3 = {
   'Horned Lark': [...probable, ...confirmed],
   'White-breasted Nuthatch': [...probable, ...confirmed],
   'European Starling': [...probable, ...confirmed],
-  'Eastermn Bluebird': [...probable, ...confirmed],
+  'Eastern Bluebird': [...probable, ...confirmed],
   'American Robin': [...probable, ...confirmed],
   'House Sparrow': [...possible, ...probable, ...confirmed],
   'House Finch': [...probable, ...confirmed],
