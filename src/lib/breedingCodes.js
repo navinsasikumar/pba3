@@ -1,6 +1,6 @@
 export const confirmed = ['PE', 'CN', 'NB', 'DD', 'UN', 'ON', 'FL', 'CF', 'FY', 'FS', 'NE', 'NY'];
-export const probable = ['S7', 'M', 'P', 'T', 'C', 'N', 'A', 'B'];
-export const possible = ['H', 'S'];
+export const probable = ['P', 'T', 'C', 'N', 'A', 'B'];
+export const possible = ['H', 'S', 'S7', 'M'];
 
 export const breedingCodeDetails = {
   H: {
